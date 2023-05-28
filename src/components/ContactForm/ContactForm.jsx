@@ -5,6 +5,7 @@ import { getContacts } from 'redux/contacts/selectors_contact';
 import { addContact } from 'redux/contacts/operations';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const ContactForm = () => {
   const [clientName, setName] = useState('');
@@ -22,7 +23,7 @@ export const ContactForm = () => {
         setNumber(ev.currentTarget.value);
         break;
       default:
-        alert('Oops, our developer broke something');
+        Notify.failure('Oops, our developer broke something');
     }
   };
 
@@ -37,7 +38,7 @@ export const ContactForm = () => {
       el => el.name.toLowerCase() === client.name.toLowerCase()
     );
     if (result) {
-      alert(`${client.name} is already in your contact list`);
+      Notify.warning(`${client.name} is already in your contact list`);
       return;
     }
 

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import css from './ContactList.module.css';
+
 import { useSelector } from 'react-redux';
 import { getVisibleContacts } from 'redux/contacts/selectors_contact';
 import { deleteContacts } from 'redux/contacts/operations';
